@@ -1,0 +1,116 @@
+
+1: Define the problem
+
+Implement a smart parking barrier at the main gate of a university that automatically opens for registered staff and students.
+Aswell as counting the number of cars in the parking lot, displaying at the same time the number of available spots and triggering an alarm if someone attempts to enter while the parking is full.
+
+2: Organise and describe the data
+
+Features:
+- Automatic access
+- Count of cars
+- Alert of full capacity
+
+Inputs:
+- Sensor to check that there is a car waiting
+- Camera to check if the license plate is registered to a student or staff
+- Maximum capacity
+
+Outputs:
+- Open barrier
+- Alert system
+- Free spots
+
+Assumptions:
+- Sensors are working
+- Capacity is fixed
+- Cars a uniquely identifiable
+
+Parametres:
+- Max capacity
+- Current count
+- Vehical ID Input
+- Is registered?
+- Barrier control
+
+3: Creat a flow chart
+
+
+4:
+- Read vehicle ID
+- Check if registered
+  - If not: deny entry, trigger alert, display message
+  - If yes: check current count
+    - If below max: increment count, open barrier
+    - If at max: deny entry, trigger alert, display "Parking Full"
+
+5: test and refine the solution
+
+assumptions:
+- max number 10
+- registration database is updated 
+
+tests:
+registered user with 95 cars-> allow entry
+registered user with 101 cars-> alert+entry locked+mesage
+unregistered user -> alert + entry locked + message
+
+suggested improvements:
+- add logging feature for entries
+- Integrate a web dahshbiard for monitoring
+- Add override for emergecy vehicles
+
+
+
+AI HELP:
+Thanks for laying out the project so clearly! Now let’s reflect on the **ethics** and **limitations** of this smart parking barrier system. These considerations are crucial for ensuring the solution is not only technically sound but also socially responsible and sustainable.
+
+---
+
+## ⚖️ Ethical Considerations
+
+### 1. **Privacy and Surveillance**
+- **License Plate Recognition (LPR)** involves capturing and processing personal data.
+- Ethical concern: Are students and staff aware their plates are being scanned and stored?
+- **Mitigation**: Transparent data policies, opt-in consent, and secure data handling protocols.
+
+### 2. **Bias and Fair Access**
+- If the system only allows registered users, what about visitors, contractors, or emergency personnel?
+- **Mitigation**: Include override mechanisms and temporary access options.
+
+### 3. **Safety and Aggressive Responses**
+- The step “slam the boom gate over the bumper of the car” is clearly unethical and unsafe.
+- **Mitigation**: Replace with a non-violent alert system—e.g., flashing lights, audio warnings, or a polite message.
+
+### 4. **Data Security**
+- The registration database must be protected against unauthorized access or tampering.
+- **Mitigation**: Use encryption, access controls, and regular audits.
+
+### 5. **Transparency and Accountability**
+- Users should know how decisions are made (e.g., why access was denied).
+- **Mitigation**: Provide real-time feedback and logging for dispute resolution.
+
+---
+
+## 🚧 Limitations of the System
+
+### 1. **Sensor Reliability**
+- Assumes sensors are always accurate—false positives/negatives could cause errors.
+- **Solution**: Include redundancy or manual override options.
+
+### 2. **Fixed Capacity**
+- Parking lots may change due to construction or events.
+- **Solution**: Make capacity configurable or dynamically adjustable.
+
+### 3. **Database Accuracy**
+- Assumes the registration database is always up-to-date.
+- **Solution**: Automate updates and allow real-time syncing with university systems.
+
+### 4. **Scalability**
+- Designed for a small lot (e.g., 10 cars)—may not scale well to larger campuses.
+- **Solution**: Modular architecture and cloud-based data handling.
+
+### 5. **Emergency Scenarios**
+- No mention of how to handle fire trucks, ambulances, or urgent access needs.
+- **Solution**: Emergency override with priority access and logging.
+
